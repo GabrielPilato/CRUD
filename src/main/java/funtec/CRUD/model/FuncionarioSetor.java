@@ -11,6 +11,8 @@ public enum FuncionarioSetor {
 		this.value = value;
 	}
 
+	
+	
 	public String getValue() {
 		return value;
 	}

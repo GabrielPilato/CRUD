@@ -1,7 +1,6 @@
 package funtec.CRUD.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,7 +37,7 @@ public class FuncionarioController {
 		
 		funcionarioRepository.save(funcionario);
 		
-		return "redirect/home";
+		return "redirect:/home";
 		
 	}
 	
@@ -66,6 +65,16 @@ public class FuncionarioController {
 		funcionarioRepository.save(funcionario);
 		return "redirect:/home";
 		
+	}
+	
+	@GetMapping("delete/{id}")
+	public String delete (@PathVariable(name = "id") int id, Model model)
+	{
+		Funcionario funcionario = funcionarioRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid user id: " + id));
+		
+		funcionarioRepository.delete(funcionario);
+		return "redirect:/home";
 	}
 	
 }

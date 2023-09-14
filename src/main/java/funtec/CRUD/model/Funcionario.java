@@ -8,6 +8,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,18 +17,6 @@ import lombok.Setter;
 @Entity
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Funcionario {
-	
-	
-
-	public Funcionario(int id, String nome, String email, String cargo, BigDecimal salario, FuncionarioSetor setor) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
-		this.cargo = cargo;
-		this.salario = salario;
-		this.setor = setor;
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
